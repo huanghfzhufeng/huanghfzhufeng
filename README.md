@@ -1,8 +1,11 @@
-# 🌌 Hacking the Cosmos | @Huanghfzhufeng
+# 👋 你好，我是 Zeke
 
-> **🛠️ 代码炼金术士 & 全栈开发者**
->
-> "将复杂的逻辑转化为优雅的产品。Building the future at [24K-GA](https://github.com/24K-GA)."
+**独立构建者 / 产品型工程师**
+
+我专注于构建 **高实用性的工具型产品与 AI 驱动的系统**，
+擅长将复杂流程、隐性规则与技术细节，抽象为可复用、可扩展的产品能力。
+
+目前在 **24K-GA** 下持续进行 AI Agent 与生产力工具相关的产品实验。
 
 <div align="center">
 

@@ -1,53 +1,62 @@
-# 🌌 Hacking the Cosmos | @您的 GitHub 用户名
+# 🌌 Hacking the Cosmos | @Huanghfzhufeng
 
-### 🛠️ 代码炼金术士 & 探索者
-
----
-
-> “优秀的工程师在创造世界，而伟大的工程师在构建未来。”
+> **🛠️ 代码炼金术士 & 全栈开发者**
 >
-> **Status:** **[ 🟢 正在运行 / 🟡 充电中 / 🔴 系统宕机 ]**
+> "将复杂的逻辑转化为优雅的产品。Building the future at [24K-GA](https://github.com/24K-GA)."
 
-### 🔥 我的数字足迹与成就 (GitHub Stats)
+<div align="center">
 
-$$
-\text{[![您的用户名's GitHub stats](https://github-readme-stats.vercel.app/api?username=您的用户名&show_icons=true&theme=radical&hide_border=true&count_private=true)](https://github.com/您的用户名)}
-$$
+![Stats](https://github-readme-stats.vercel.app/api?username=huanghfzhufeng&show_icons=true&theme=radical&hide_border=true)
+![Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=huanghfzhufeng&layout=compact&theme=radical&hide_border=true)
 
-$$
-\text{[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=您的用户名&layout=compact&theme=dark&hide_border=true)](https://github.com/您的用户名)}
-$$
-
-### 🔭 正在进行中的任务 (Missions In Progress)
-
-* **[项目名称 A]**：正在优化其核心算法，目标是**将性能提高 $20\%$**。
-* **[项目名称 B]**：开发跨平台 UI/UX，使用 **[框架/技术栈]**。
-* 正在深入学习 **[最新的技术/框架，例如：Rust, WebAssembly, Qiskit]** 的高级特性。
-
-### 🌱 技能树升级中 (Skill Tree Development)
-
-* **当前焦点:** **云原生架构 ($K8s$ \& $Docker$)** 和 **大规模数据处理 ($Spark$ \& $Flink$)**。
-* **新解锁技能点:** 挑战 **[某项新的编程语言或复杂概念，例如：类型理论、强化学习]**。
-
-### 🤝 寻求协作 (Looking to Join Forces)
-
-* 寻找对 **[特定领域，例如：去中心化金融 DeFi, AGI 伦理, 某个开源项目]** 有激情的伙伴，一起构建下一个杀手级应用。
-* 对于任何涉及 **[您最擅长的技术，例如：Python 后端服务、React 前端组件]** 的开源项目，我非常乐意贡献代码和文档。
-
-### 💬 保持联络 (Signal Transmission)
-
-* **Ask me about:** 复杂的分布式系统设计、前端性能调优、以及关于**如何高效使用 $Vim$** 的技巧！
-* **How to reach me:**
-    * **Email:** `您的邮箱@example.com`
-    * **LinkedIn:** `您的领英资料链接`
-    * **个人网站/博客:** `您的网站链接`
-
-### ⚡ 有趣的事实碎片 (Fun Fact Fragments)
-
-* 我曾在 **[特定的开源项目或挑战赛]** 中贡献过代码。
-* 我拥有 **[一项独特的爱好或技能，例如：三小时内解决一个魔方]**。
-* 我相信 **[一句关于技术或生活的有趣格言，例如：测试覆盖率是幸福的唯一来源]**。
+</div>
 
 ---
 
-> ✨ **Powered by Coffee, Code, and Curiosity.** ✨
+### 🚀 核心实验室 (The Workshop)
+
+我专注于构建高实用性的工具与 AI 驱动的应用。以下是我在 **24K-GA** 的精选项目：
+
+| 项目名称 (Project) | 描述 (Description) | 领域 (Domain) |
+| :--- | :--- | :--- |
+| **🤖 [SoftRight-AI](https://github.com/24K-GA/SoftRight-AI)** | 智能软件解决方案与 AI 核心算法实现。 | `AI / ML` |
+| **🎓 [AI-Course-EvalMate](https://github.com/24K-GA/AI-Course-EvalMate)** | 智能课程评估助手，利用 AI 自动化分析教学反馈。 | `EdTech / NLP` |
+| **🌍 [GEO-Insight](https://github.com/24K-GA/GEO-Insight)** | 地理空间数据洞察与可视化分析工具。 | `Data Sci / GIS` |
+| **🍌 [Banana-Watermark](https://github.com/24K-GA/banana-watermark)** | 高效的图像水印处理工具，保护数字资产。 | `Image Processing` |
+| **📱 [App-Mockup-Studio](https://github.com/24K-GA/App-Mockup-Studio)** | 快速生成 App 样机模型的开发者工具。 | `Design Tool` |
+| **🎨 [NoteArtist](https://github.com/24K-GA/NoteArtist)** | 极具艺术感的笔记与内容创作工具。 | `Productivity` |
+
+---
+
+### 🌱 技能矩阵 (Tech Matrix)
+
+* **🧠 Artificial Intelligence:** PyTorch, TensorFlow, NLP, Computer Vision
+* **💻 Full Stack:** Python, JavaScript/TypeScript, Web Frameworks
+* **🔧 DevOps & Tools:** Docker, Git, Linux Automation
+* **📊 Data:** Pandas, GeoPandas, Visualization
+
+### ⚡ 状态日志 (Status Log)
+
+* 🔭 **正在进行:** 持续迭代 `SoftRight-AI` 的核心模型。
+* 🌱 **当前探索:** 结合 GIS 数据与 AI 的深度学习应用 (`GEO-Insight`)。
+* 👯 **寻求合作:** 对 **AI 教育 (EdTech)** 或 **开发者效率工具** 感兴趣的伙伴。
+
+---
+
+### 📡 保持联络 (Signal Transmission)
+
+<div align="center">
+
+| Platform | Link / ID |
+| :---: | :--- |
+| 📧 **Email** | [2461646599@qq.com](mailto:2461646599@qq.com) |
+| 📕 **小红书** | [访问 Zeke 的主页](https://www.xiaohongshu.com/user/profile/6910cb1600000000390147ab) |
+| 🎵 **抖音** | **Zeke** (Zeke的抖音) |
+
+</div>
+
+<br/>
+
+<div align="center">
+  <sub>Let's build something amazing together.</sub>
+</div>

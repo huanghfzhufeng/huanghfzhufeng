@@ -6,8 +6,6 @@
 
 <div align="center">
 
-![Stats](https://github-readme-stats.vercel.app/api?username=huanghfzhufeng&show_icons=true&theme=tokyonight&hide_border=true&bg_color=1a1b27&ring_color=7aa2f7&icon_color=7aa2f7&title_color=7aa2f7&text_color=c0caf5)
-![Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=huanghfzhufeng&layout=compact&theme=tokyonight&hide_border=true&bg_color=1a1b27&ring_color=7aa2f7&icon_color=7aa2f7&title_color=7aa2f7&text_color=c0caf5)
 
 </div>
 

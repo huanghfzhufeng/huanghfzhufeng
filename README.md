@@ -16,24 +16,6 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/huanghfzhufeng/SoftRight-AI">
-    <img height="145" src="https://github-readme-stats.vercel.app/api/pin/?username=huanghfzhufeng&repo=SoftRight-AI&hide_border=true&bg_color=00000000&title_color=0F766E&text_color=475569&icon_color=C97A1A" alt="SoftRight-AI" />
-  </a>
-  <a href="https://github.com/huanghfzhufeng/GEO-Insight">
-    <img height="145" src="https://github-readme-stats.vercel.app/api/pin/?username=huanghfzhufeng&repo=GEO-Insight&hide_border=true&bg_color=00000000&title_color=0F766E&text_color=475569&icon_color=C97A1A" alt="GEO-Insight" />
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/huanghfzhufeng/App-Mockup-Studio">
-    <img height="145" src="https://github-readme-stats.vercel.app/api/pin/?username=huanghfzhufeng&repo=App-Mockup-Studio&hide_border=true&bg_color=00000000&title_color=0F766E&text_color=475569&icon_color=C97A1A" alt="App-Mockup-Studio" />
-  </a>
-  <a href="https://github.com/huanghfzhufeng/csccc">
-    <img height="145" src="https://github-readme-stats.vercel.app/api/pin/?username=huanghfzhufeng&repo=csccc&hide_border=true&bg_color=00000000&title_color=0F766E&text_color=475569&icon_color=C97A1A" alt="csccc" />
-  </a>
-</p>
-
-<p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=huanghfzhufeng&bg_color=ffffff&color=475569&line=0F766E&point=C97A1A&area=true&hide_border=true" width="100%" alt="Activity graph" />
 </p>
 

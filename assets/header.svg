@@ -1,0 +1,50 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="78" y1="34" x2="1128" y2="264" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBFAF7"/>
+      <stop offset="1" stop-color="#F3F6F6"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="214" y1="84" x2="1010" y2="226" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F766E"/>
+      <stop offset="1" stop-color="#C97A1A"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1200" height="300" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <rect x="28" y="24" width="1144" height="252" rx="28" fill="url(#bg)"/>
+    <rect x="28.5" y="24.5" width="1143" height="251" rx="27.5" stroke="#E5E7EB"/>
+  </g>
+
+  <path d="M92 84H344" stroke="#D7E2E1" stroke-width="2"/>
+  <path d="M92 216H286" stroke="#E7D7BE" stroke-width="2"/>
+  <path d="M856 84H1108" stroke="#D7E2E1" stroke-width="2"/>
+  <path d="M916 216H1108" stroke="#E7D7BE" stroke-width="2"/>
+
+  <rect x="92" y="74" width="8" height="8" rx="4" fill="#0F766E"/>
+  <rect x="1100" y="74" width="8" height="8" rx="4" fill="#0F766E"/>
+  <rect x="92" y="212" width="8" height="8" rx="4" fill="#C97A1A"/>
+  <rect x="1100" y="212" width="8" height="8" rx="4" fill="#C97A1A"/>
+
+  <rect x="756" y="102" width="248" height="92" rx="18" fill="#FFFFFF" fill-opacity="0.62" stroke="#E6ECEC"/>
+  <path d="M790 138H966" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M790 158H934" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round"/>
+  <path d="M790 176H902" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="969" cy="138" r="10" fill="#0F766E" fill-opacity="0.14" stroke="#0F766E"/>
+  <circle cx="994" cy="138" r="10" fill="#C97A1A" fill-opacity="0.16" stroke="#C97A1A"/>
+
+  <text x="92" y="126" fill="#0F172A" font-size="18" font-weight="600" font-family="SF Pro Display, Segoe UI, Arial, sans-serif" letter-spacing="4">
+    INDEPENDENT DEVELOPER
+  </text>
+  <text x="92" y="182" fill="#111827" font-size="72" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif" letter-spacing="3">
+    ZEKE
+  </text>
+  <text x="92" y="224" fill="#4B5563" font-size="22" font-weight="500" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">
+    AI products / agent systems / automation
+  </text>
+
+  <path d="M756 84L790 50" stroke="#D6DFDF" stroke-width="2"/>
+  <path d="M1004 194L1036 226" stroke="#E5D7C5" stroke-width="2"/>
+</svg>

@@ -1,0 +1,74 @@
+<svg width="1200" height="236" viewBox="0 0 1200 236" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="metricsBg" x1="62" y1="28" x2="1138" y2="212" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBFAF7"/>
+      <stop offset="1" stop-color="#F4F7F7"/>
+    </linearGradient>
+    <filter id="metricsShadow" x="0" y="0" width="1200" height="236" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#metricsShadow)">
+    <rect x="22" y="18" width="1156" height="200" rx="28" fill="url(#metricsBg)"/>
+    <rect x="22.5" y="18.5" width="1155" height="199" rx="27.5" stroke="#E5E7EB"/>
+  </g>
+
+  <path d="M46 46H248" stroke="#D8E3E2" stroke-width="2"/>
+  <path d="M970 46H1152" stroke="#E6D6BE" stroke-width="2"/>
+  <rect x="46" y="42" width="8" height="8" rx="4" fill="#0F766E"/>
+  <rect x="1144" y="42" width="8" height="8" rx="4" fill="#C97A1A"/>
+
+  <text x="46" y="48" fill="#64748B" font-size="14" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif" letter-spacing="3">
+    PUBLIC GITHUB SNAPSHOT
+  </text>
+  <text x="952" y="48" fill="#94A3B8" font-size="13" font-weight="700" font-family="SF Pro Text, Segoe UI, Arial, sans-serif" letter-spacing="2">
+    AUTO-REFRESHED
+  </text>
+
+  
+  <g>
+    <rect x="46" y="64" width="250" height="132" rx="22" fill="#FFFFFF" fill-opacity="0.80" stroke="#E6ECEC"/>
+    <rect x="70" y="88" width="72" height="4" rx="2" fill="#0F766E" fill-opacity="0.95"/>
+    <circle cx="262" cy="92" r="9" fill="#0F766E" fill-opacity="0.10" stroke="#0F766E" stroke-width="1.5"/>
+    <text x="70" y="120" fill="#64748B" font-size="13" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif" letter-spacing="2">
+      PUBLIC STARS
+    </text>
+    <text x="70" y="174" fill="#0F172A" font-size="44" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif">
+      130
+    </text>
+  </g>
+  <g>
+    <rect x="314" y="64" width="250" height="132" rx="22" fill="#FFFFFF" fill-opacity="0.80" stroke="#E6ECEC"/>
+    <rect x="338" y="88" width="72" height="4" rx="2" fill="#C97A1A" fill-opacity="0.95"/>
+    <circle cx="530" cy="92" r="9" fill="#C97A1A" fill-opacity="0.10" stroke="#C97A1A" stroke-width="1.5"/>
+    <text x="338" y="120" fill="#64748B" font-size="13" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif" letter-spacing="2">
+      PUBLIC REPOS
+    </text>
+    <text x="338" y="174" fill="#0F172A" font-size="44" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif">
+      25
+    </text>
+  </g>
+  <g>
+    <rect x="582" y="64" width="250" height="132" rx="22" fill="#FFFFFF" fill-opacity="0.80" stroke="#E6ECEC"/>
+    <rect x="606" y="88" width="72" height="4" rx="2" fill="#0F766E" fill-opacity="0.95"/>
+    <circle cx="798" cy="92" r="9" fill="#0F766E" fill-opacity="0.10" stroke="#0F766E" stroke-width="1.5"/>
+    <text x="606" y="120" fill="#64748B" font-size="13" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif" letter-spacing="2">
+      MERGED PRS
+    </text>
+    <text x="606" y="174" fill="#0F172A" font-size="44" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif">
+      30
+    </text>
+  </g>
+  <g>
+    <rect x="850" y="64" width="250" height="132" rx="22" fill="#FFFFFF" fill-opacity="0.80" stroke="#E6ECEC"/>
+    <rect x="874" y="88" width="72" height="4" rx="2" fill="#C97A1A" fill-opacity="0.95"/>
+    <circle cx="1066" cy="92" r="9" fill="#C97A1A" fill-opacity="0.10" stroke="#C97A1A" stroke-width="1.5"/>
+    <text x="874" y="120" fill="#64748B" font-size="13" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif" letter-spacing="2">
+      PUBLIC FORKS
+    </text>
+    <text x="874" y="174" fill="#0F172A" font-size="44" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif">
+      20
+    </text>
+  </g>
+</svg>

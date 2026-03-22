@@ -1,0 +1,35 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="20" x2="1030" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFBF2"/>
+      <stop offset="1" stop-color="#F4F7F7"/>
+    </linearGradient>
+    <linearGradient id="stroke" x1="130" y1="70" x2="990" y2="270" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F766E"/>
+      <stop offset="1" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="1199" height="319" rx="28" fill="url(#bg)" stroke="#E2E8F0"/>
+  <rect x="56" y="52" width="240" height="16" rx="8" fill="#0F766E" fill-opacity="0.12"/>
+  <rect x="56" y="88" width="154" height="16" rx="8" fill="#D97706" fill-opacity="0.16"/>
+  <rect x="56" y="228" width="168" height="14" rx="7" fill="#0F766E" fill-opacity="0.1"/>
+
+  <path d="M820 56H1088V124H988L936 176H820V56Z" fill="#0F766E" fill-opacity="0.08"/>
+  <path d="M894 176H1088V246H946L894 298V176Z" fill="#D97706" fill-opacity="0.11"/>
+  <rect x="782" y="106" width="200" height="2" rx="1" fill="url(#stroke)"/>
+  <rect x="830" y="214" width="184" height="2" rx="1" fill="url(#stroke)"/>
+
+  <circle cx="744" cy="92" r="10" fill="#0F766E" fill-opacity="0.2"/>
+  <circle cx="774" cy="92" r="10" fill="#D97706" fill-opacity="0.22"/>
+  <circle cx="804" cy="92" r="10" fill="#0F172A" fill-opacity="0.14"/>
+
+  <text x="56" y="146" fill="#0F172A" font-size="44" font-weight="700" font-family="Segoe UI, Arial, sans-serif" letter-spacing="1">
+    SHIP AI PRODUCTS FAST
+  </text>
+  <text x="56" y="192" fill="#475569" font-size="21" font-weight="500" font-family="Segoe UI, Arial, sans-serif">
+    Validate ideas. Automate workflows. Turn experiments into products.
+  </text>
+
+  <path d="M56 274H702" stroke="url(#stroke)" stroke-width="4" stroke-linecap="round"/>
+</svg>

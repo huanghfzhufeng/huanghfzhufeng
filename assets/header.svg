@@ -36,13 +36,13 @@
   <circle cx="994" cy="138" r="10" fill="#C97A1A" fill-opacity="0.16" stroke="#C97A1A"/>
 
   <text x="92" y="126" fill="#0F172A" font-size="18" font-weight="600" font-family="SF Pro Display, Segoe UI, Arial, sans-serif" letter-spacing="4">
-    INDEPENDENT DEVELOPER
+    INDEPENDENT BUILDER
   </text>
   <text x="92" y="182" fill="#111827" font-size="72" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif" letter-spacing="3">
     ZEKE
   </text>
-  <text x="92" y="224" fill="#4B5563" font-size="22" font-weight="500" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">
-    AI products / agent systems / automation
+  <text x="92" y="224" fill="#4B5563" font-size="21" font-weight="500" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">
+    Shipping AI-native products / agent systems / workflows
   </text>
 
   <path d="M756 84L790 50" stroke="#D6DFDF" stroke-width="2"/>

@@ -1,0 +1,6 @@
+<svg width="304" height="56" viewBox="0 0 304 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0.5" y="0.5" width="303" height="55" rx="18" fill="#FFFFFF" fill-opacity="0.84" stroke="#E6ECEC"/>
+  <rect x="28" y="16" width="76" height="3" rx="1.5" fill="#0F766E"/>
+  <circle cx="280" cy="18" r="8.5" fill="#0F766E" fill-opacity="0.10" stroke="#0F766E" stroke-width="1.5"/>
+  <text x="28" y="38" fill="#0F172A" font-size="20" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif">App-Mockup-Studio</text>
+</svg>

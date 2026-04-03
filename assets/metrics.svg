@@ -35,7 +35,7 @@
       PUBLIC STARS
     </text>
     <text x="70" y="174" fill="#0F172A" font-size="44" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif">
-      132
+      133
     </text>
   </g>
   <g>
@@ -68,7 +68,7 @@
       PUBLIC FORKS
     </text>
     <text x="874" y="174" fill="#0F172A" font-size="44" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif">
-      20
+      21
     </text>
   </g>
 </svg>

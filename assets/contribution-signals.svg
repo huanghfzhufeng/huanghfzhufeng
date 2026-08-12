@@ -39,7 +39,7 @@
   </text>
   <text x="1010" y="126" fill="#0F172A" font-size="34" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif">0</text>
   <text x="1090" y="126" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">
-    May 20
+    May 21
   </text>
 
   <path d="M 68 232.50 H 1126" stroke="#D9E2E1" stroke-width="1" stroke-dasharray="5 8"/><path d="M 68 187.00 H 1126" stroke="#D9E2E1" stroke-width="1" stroke-dasharray="5 8"/><path d="M 68 141.50 H 1126" stroke="#D9E2E1" stroke-width="1" stroke-dasharray="5 8"/>
@@ -54,5 +54,5 @@
     TODAY 0
   </text>
 
-  <text x="68.00" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">May</text><text x="220.96" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">Jun</text><text x="603.37" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">Jul</text><text x="998.53" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">Aug</text>
+  <text x="68.00" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">May</text><text x="208.22" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">Jun</text><text x="590.63" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">Jul</text><text x="985.78" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">Aug</text>
 </svg>

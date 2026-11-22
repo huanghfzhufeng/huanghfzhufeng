@@ -39,7 +39,7 @@
   </text>
   <text x="1010" y="126" fill="#0F172A" font-size="34" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif">0</text>
   <text x="1090" y="126" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">
-    Aug 30
+    Aug 31
   </text>
 
   <path d="M 68 232.50 H 1126" stroke="#D9E2E1" stroke-width="1" stroke-dasharray="5 8"/><path d="M 68 187.00 H 1126" stroke="#D9E2E1" stroke-width="1" stroke-dasharray="5 8"/><path d="M 68 141.50 H 1126" stroke="#D9E2E1" stroke-width="1" stroke-dasharray="5 8"/>
@@ -54,5 +54,5 @@
     TODAY 0
   </text>
 
-  <text x="68.00" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">Aug</text><text x="93.49" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">Sep</text><text x="475.90" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">Oct</text><text x="871.06" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">Nov</text>
+  <text x="68.00" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">Aug</text><text x="80.75" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">Sep</text><text x="463.16" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">Oct</text><text x="858.31" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">Nov</text>
 </svg>

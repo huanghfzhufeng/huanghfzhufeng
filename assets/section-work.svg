@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="896" height="40" viewBox="0 0 896 40" fill="none">
+  <rect x="0" y="14" width="10" height="10" fill="#4ADE80" shape-rendering="crispEdges"/>
+  <rect x="14" y="16" width="6" height="6" fill="#445D7E" shape-rendering="crispEdges"/>
+  <text x="30" y="24" fill="#F1F5F9" font-family="'SF Mono', 'JetBrains Mono', 'Menlo', 'Monaco', 'Consolas', monospace" font-size="14" font-weight="800" letter-spacing="1.6">SELECTED WORK</text>
+  <text x="236" y="24" fill="#94A3B8" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif" font-size="12.5" font-weight="500">精选公开作品 · 点击卡片直达仓库</text>
+  <rect x="0" y="34" width="896" height="2" fill="#2B3B52" shape-rendering="crispEdges"/>
+  <rect x="0" y="34" width="120" height="2" fill="#4ADE80" shape-rendering="crispEdges"/>
+</svg>

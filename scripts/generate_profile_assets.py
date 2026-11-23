@@ -1,408 +1,504 @@
 #!/usr/bin/env python3
+"""Generate Dark Pixel Craft SVG assets for huanghfzhufeng (朱锋ZF) GitHub Profile."""
 
 from __future__ import annotations
 
-import json
-import math
-import os
-import pathlib
-import re
-import urllib.parse
-import urllib.request
-from datetime import date, timedelta
+from html import escape
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+ASSETS = ROOT / "assets"
+
+# Dark Pixel Craft Palette
+BG_DARK = "#0D1117"
+PANEL_BG = "#121923"
+CARD_BG = "#151E2B"
+BORDER = "#2B3B52"
+BORDER_HI = "#445D7E"
+SHADOW = "#070A0F"
+TEXT_MAIN = "#F1F5F9"
+TEXT_SUB = "#94A3B8"
+TEXT_DIM = "#64748B"
+
+GREEN = "#4ADE80"
+GREEN_DARK = "#14532D"
+AMBER = "#F59E0B"
+AMBER_DARK = "#451A03"
+CYAN = "#38BDF8"
+CYAN_DARK = "#0C4A6E"
+VIOLET = "#A78BFA"
+VIOLET_DARK = "#2E1065"
+
+MONO_FONT = "'SF Mono', 'JetBrains Mono', 'Menlo', 'Monaco', 'Consolas', monospace"
+SANS_FONT = "'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif"
 
 
-USERNAME = os.environ.get("PROFILE_USERNAME", "huanghfzhufeng")
-ASSETS_DIR = pathlib.Path("assets")
-API_BASE = "https://api.github.com"
-PROJECTS = [
-    {
-        "label": "SoftRight-AI",
-        "repo": "SoftRight-AI",
-        "accent": "#0F766E",
-        "width": 236,
-    },
-    {
-        "label": "GEO-Insight",
-        "repo": "GEO-Insight",
-        "accent": "#C97A1A",
-        "width": 222,
-    },
-    {
-        "label": "App-Mockup-Studio",
-        "repo": "App-Mockup-Studio",
-        "accent": "#0F766E",
-        "width": 304,
-    },
-    {
-        "label": "csccc",
-        "repo": "csccc",
-        "accent": "#C97A1A",
-        "width": 168,
-    },
-]
-EXTRA_LINK = {
-    "label": "All repositories",
-    "filename": "all-repositories.svg",
-    "accent": "#0F766E",
-    "width": 212,
-}
-CONTRIBUTION_WINDOW_DAYS = 84
-
-
-def http_get(url: str) -> str:
-    headers = {
-        "Accept": "application/vnd.github+json",
-        "User-Agent": f"{USERNAME}-profile-assets",
-    }
-    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
-    if token:
-        headers["Authorization"] = f"Bearer {token}"
-
-    request = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(request, timeout=20) as response:
-        return response.read().decode("utf-8")
-
-
-def api_get(url: str) -> dict:
-    return json.loads(http_get(url))
-
-
-def get_user() -> dict:
-    return api_get(f"{API_BASE}/users/{USERNAME}")
-
-
-def get_repositories() -> list[dict]:
-    repos: list[dict] = []
-    page = 1
-    while True:
-        params = urllib.parse.urlencode(
-            {
-                "per_page": 100,
-                "page": page,
-                "type": "owner",
-                "sort": "updated",
-            }
-        )
-        batch = api_get(f"{API_BASE}/users/{USERNAME}/repos?{params}")
-        if not isinstance(batch, list) or not batch:
-            break
-        repos.extend(batch)
-        if len(batch) < 100:
-            break
-        page += 1
-    return repos
-
-
-def get_merged_pr_count() -> int:
-    query = urllib.parse.quote(f"type:pr author:{USERNAME} is:merged")
-    payload = api_get(f"{API_BASE}/search/issues?q={query}")
-    return int(payload["total_count"])
-
-
-def build_metrics() -> dict[str, int]:
-    user = get_user()
-    repos = get_repositories()
-
-    return {
-        "public_stars": sum(int(repo["stargazers_count"]) for repo in repos),
-        "repositories": int(user["public_repos"]),
-        "merged_prs": get_merged_pr_count(),
-        "public_forks": sum(int(repo["forks_count"]) for repo in repos),
-    }
-
-
-def render_metrics_svg(metrics: dict[str, int]) -> str:
-    cards = [
-        ("PUBLIC STARS", f'{metrics["public_stars"]:,}'),
-        ("PUBLIC REPOS", f'{metrics["repositories"]:,}'),
-        ("MERGED PRS", f'{metrics["merged_prs"]:,}'),
-        ("PUBLIC FORKS", f'{metrics["public_forks"]:,}'),
-    ]
-
-    card_width = 250
-    card_height = 132
-    start_x = 46
-    gap = 18
-    y = 64
-
-    card_blocks: list[str] = []
-    for index, (label, value) in enumerate(cards):
-        x = start_x + index * (card_width + gap)
-        line_color = "#0F766E" if index % 2 == 0 else "#C97A1A"
-        circle_x = x + card_width - 34
-        circle_y = y + 28
-        card_blocks.append(
-            f"""
-  <g>
-    <rect x="{x}" y="{y}" width="{card_width}" height="{card_height}" rx="22" fill="#FFFFFF" fill-opacity="0.80" stroke="#E6ECEC"/>
-    <rect x="{x + 24}" y="{y + 24}" width="72" height="4" rx="2" fill="{line_color}" fill-opacity="0.95"/>
-    <circle cx="{circle_x}" cy="{circle_y}" r="9" fill="{line_color}" fill-opacity="0.10" stroke="{line_color}" stroke-width="1.5"/>
-    <text x="{x + 24}" y="{y + 56}" fill="#64748B" font-size="13" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif" letter-spacing="2">
-      {label}
-    </text>
-    <text x="{x + 24}" y="{y + 110}" fill="#0F172A" font-size="44" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif">
-      {value}
-    </text>
-  </g>"""
-        )
-
-    return f"""<svg width="1200" height="236" viewBox="0 0 1200 236" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="metricsBg" x1="62" y1="28" x2="1138" y2="212" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FBFAF7"/>
-      <stop offset="1" stop-color="#F4F7F7"/>
-    </linearGradient>
-    <filter id="metricsShadow" x="0" y="0" width="1200" height="236" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.05"/>
-    </filter>
-  </defs>
-
-  <g filter="url(#metricsShadow)">
-    <rect x="22" y="18" width="1156" height="200" rx="28" fill="url(#metricsBg)"/>
-    <rect x="22.5" y="18.5" width="1155" height="199" rx="27.5" stroke="#E5E7EB"/>
-  </g>
-
-  <path d="M46 46H248" stroke="#D8E3E2" stroke-width="2"/>
-  <path d="M970 46H1152" stroke="#E6D6BE" stroke-width="2"/>
-  <rect x="46" y="42" width="8" height="8" rx="4" fill="#0F766E"/>
-  <rect x="1144" y="42" width="8" height="8" rx="4" fill="#C97A1A"/>
-
-  <text x="46" y="48" fill="#64748B" font-size="14" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif" letter-spacing="3">
-    PUBLIC GITHUB SNAPSHOT
-  </text>
-  <text x="952" y="48" fill="#94A3B8" font-size="13" font-weight="700" font-family="SF Pro Text, Segoe UI, Arial, sans-serif" letter-spacing="2">
-    AUTO-REFRESHED
-  </text>
-
-  {"".join(card_blocks)}
-</svg>
-"""
-
-
-def contribution_date_range() -> tuple[date, date]:
-    end = date.today()
-    start = end - timedelta(days=CONTRIBUTION_WINDOW_DAYS - 1)
-    return start, end
-
-
-def get_contribution_series() -> list[tuple[date, int]]:
-    start, end = contribution_date_range()
-    params = urllib.parse.urlencode(
-        {
-            "from": start.isoformat(),
-            "to": end.isoformat(),
-        }
-    )
-    html = http_get(f"https://github.com/users/{USERNAME}/contributions?{params}")
-    pattern = re.compile(
-        r'data-date="(?P<date>\d{4}-\d{2}-\d{2})"[^>]*></td>\s*<tool-tip[^>]*>(?P<tip>[^<]+)</tool-tip>',
-        re.S,
-    )
-    counts: dict[str, int] = {}
-    for match in pattern.finditer(html):
-        current_date = match.group("date")
-        tooltip = match.group("tip")
-        contribution_match = re.search(r"(\d+) contributions?", tooltip)
-        counts[current_date] = int(contribution_match.group(1)) if contribution_match else 0
-
-    series: list[tuple[date, int]] = []
-    cursor = start
-    while cursor <= end:
-        series.append((cursor, counts.get(cursor.isoformat(), 0)))
-        cursor += timedelta(days=1)
-    return series
-
-
-def nice_max(value: int) -> int:
-    if value <= 5:
-        return 5
-    magnitude = 10 ** int(math.log10(value))
-    candidates = [1, 2, 5, 10]
-    for step in candidates:
-        ceiling = step * magnitude
-        if value <= ceiling:
-            return ceiling
-    return 10 * magnitude
-
-
-def build_line_path(points: list[tuple[float, float]]) -> str:
-    commands = [f"M {points[0][0]:.2f} {points[0][1]:.2f}"]
-    for x, y in points[1:]:
-        commands.append(f"L {x:.2f} {y:.2f}")
-    return " ".join(commands)
-
-
-def build_area_path(points: list[tuple[float, float]], baseline: float) -> str:
-    line = build_line_path(points)
-    end_x = points[-1][0]
-    start_x = points[0][0]
-    return f"{line} L {end_x:.2f} {baseline:.2f} L {start_x:.2f} {baseline:.2f} Z"
-
-
-def render_contribution_svg(series: list[tuple[date, int]]) -> str:
-    counts = [count for _, count in series]
-    total = sum(counts)
-    peak = max(counts) if counts else 0
-    peak_index = counts.index(peak) if counts else 0
-    latest = counts[-1] if counts else 0
-    latest_date = series[-1][0] if series else date.today()
-    plot_left = 68
-    plot_right = 1126
-    plot_top = 96
-    plot_bottom = 278
-    plot_width = plot_right - plot_left
-    plot_height = plot_bottom - plot_top
-    chart_max = nice_max(peak if peak > 0 else 1)
-
-    points: list[tuple[float, float]] = []
-    for index, (_, count) in enumerate(series):
-        if len(series) == 1:
-            x = plot_left
-        else:
-            x = plot_left + (plot_width * index / (len(series) - 1))
-        y = plot_bottom - (count / chart_max) * plot_height
-        points.append((x, y))
-
-    area_path = build_area_path(points, plot_bottom)
-    line_path = build_line_path(points)
-
-    grid_values = [chart_max * ratio for ratio in (0.25, 0.5, 0.75)]
-    grid_lines = []
-    for value in grid_values:
-        y = plot_bottom - (value / chart_max) * plot_height
-        grid_lines.append(
-            f'<path d="M {plot_left} {y:.2f} H {plot_right}" stroke="#D9E2E1" stroke-width="1" stroke-dasharray="5 8"/>'
-        )
-
-    month_labels = []
-    seen_months: set[tuple[int, int]] = set()
-    for index, (current_date, _) in enumerate(series):
-        month_key = (current_date.year, current_date.month)
-        is_first = index == 0
-        month_changed = month_key not in seen_months
-        if is_first or (current_date.day <= 7 and month_changed):
-            x = points[index][0]
-            month_labels.append(
-                f'<text x="{x:.2f}" y="302" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">{current_date.strftime("%b")}</text>'
+def pixel_matrix(
+    grid: list[str],
+    x0: int,
+    y0: int,
+    scale: int,
+    palette: dict[str, str],
+) -> str:
+    """Render an ASCII pixel grid as crisp SVG <rect> elements."""
+    rects: list[str] = []
+    for row_idx, row in enumerate(grid):
+        for col_idx, ch in enumerate(row):
+            color = palette.get(ch)
+            if not color:
+                continue
+            rx = x0 + col_idx * scale
+            ry = y0 + row_idx * scale
+            rects.append(
+                f'<rect x="{rx}" y="{ry}" width="{scale}" height="{scale}" '
+                f'fill="{color}" shape-rendering="crispEdges"/>'
             )
-            seen_months.add(month_key)
-
-    peak_x, peak_y = points[peak_index]
-    latest_x, latest_y = points[-1]
-    peak_date = series[peak_index][0]
-
-    return f"""<svg width="1200" height="340" viewBox="0 0 1200 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="signalBg" x1="62" y1="24" x2="1138" y2="314" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FBFAF7"/>
-      <stop offset="1" stop-color="#F4F7F7"/>
-    </linearGradient>
-    <linearGradient id="signalFill" x1="0" y1="96" x2="0" y2="278" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0F766E" stop-opacity="0.18"/>
-      <stop offset="1" stop-color="#0F766E" stop-opacity="0.02"/>
-    </linearGradient>
-    <filter id="signalShadow" x="0" y="0" width="1200" height="340" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.05"/>
-    </filter>
-  </defs>
-
-  <g filter="url(#signalShadow)">
-    <rect x="22" y="18" width="1156" height="292" rx="28" fill="url(#signalBg)"/>
-    <rect x="22.5" y="18.5" width="1155" height="291" rx="27.5" stroke="#E5E7EB"/>
-  </g>
-
-  <path d="M46 46H280" stroke="#D8E3E2" stroke-width="2"/>
-  <path d="M942 46H1152" stroke="#E6D6BE" stroke-width="2"/>
-  <rect x="46" y="42" width="8" height="8" rx="4" fill="#0F766E"/>
-  <rect x="1144" y="42" width="8" height="8" rx="4" fill="#C97A1A"/>
-
-  <text x="46" y="48" fill="#64748B" font-size="14" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif" letter-spacing="3">
-    CONTRIBUTION SIGNALS
-  </text>
-  <text x="1032" y="48" fill="#94A3B8" font-size="13" font-weight="700" font-family="SF Pro Text, Segoe UI, Arial, sans-serif" letter-spacing="2">
-    LAST {CONTRIBUTION_WINDOW_DAYS} DAYS
-  </text>
-
-  <text x="876" y="92" fill="#64748B" font-size="12" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif" letter-spacing="2">
-    TOTAL
-  </text>
-  <text x="876" y="126" fill="#0F172A" font-size="34" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif">{total}</text>
-  <text x="1010" y="92" fill="#64748B" font-size="12" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif" letter-spacing="2">
-    PEAK
-  </text>
-  <text x="1010" y="126" fill="#0F172A" font-size="34" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif">{peak}</text>
-  <text x="1090" y="126" fill="#94A3B8" font-size="13" font-weight="600" font-family="SF Pro Text, Segoe UI, Arial, sans-serif">
-    {peak_date.strftime("%b %-d") if os.name != "nt" else peak_date.strftime("%b %d").replace(" 0", " ")}
-  </text>
-
-  {"".join(grid_lines)}
-  <path d="{area_path}" fill="url(#signalFill)"/>
-  <path d="{line_path}" stroke="#0F766E" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <circle cx="{peak_x:.2f}" cy="{peak_y:.2f}" r="7.5" fill="#C97A1A"/>
-  <circle cx="{peak_x:.2f}" cy="{peak_y:.2f}" r="13" stroke="#C97A1A" stroke-opacity="0.18" stroke-width="2"/>
-  <circle cx="{latest_x:.2f}" cy="{latest_y:.2f}" r="6" fill="#0F766E"/>
-
-  <text x="{latest_x:.2f}" y="78" text-anchor="middle" fill="#94A3B8" font-size="12" font-weight="700" font-family="SF Pro Text, Segoe UI, Arial, sans-serif" letter-spacing="1.4">
-    TODAY {latest}
-  </text>
-
-  {"".join(month_labels)}
-</svg>
-"""
+    return "\n  ".join(rects)
 
 
-def render_project_pill_svg(label: str, accent: str, width: int) -> str:
-    text_x = 28
-    circle_x = width - 24
-    line_x = text_x
-    line_width = min(76, max(46, len(label) * 5))
-    return f"""<svg width="{width}" height="56" viewBox="0 0 {width} 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="0.5" y="0.5" width="{width - 1}" height="55" rx="18" fill="#FFFFFF" fill-opacity="0.84" stroke="#E6ECEC"/>
-  <rect x="{line_x}" y="16" width="{line_width}" height="3" rx="1.5" fill="{accent}"/>
-  <circle cx="{circle_x}" cy="18" r="8.5" fill="{accent}" fill-opacity="0.10" stroke="{accent}" stroke-width="1.5"/>
-  <text x="{text_x}" y="38" fill="#0F172A" font-size="20" font-weight="700" font-family="SF Pro Display, Segoe UI, Arial, sans-serif">{label}</text>
-</svg>
-"""
-
-
-def write_project_assets() -> None:
-    for project in PROJECTS:
-        filename = project["repo"].lower().replace(".", "-") + ".svg"
-        path = ASSETS_DIR / filename
-        path.write_text(
-            render_project_pill_svg(
-                label=project["label"],
-                accent=project["accent"],
-                width=project["width"],
-            ),
-            encoding="utf-8",
+def pixel_frame(
+    w: int,
+    h: int,
+    *,
+    bg: str = PANEL_BG,
+    border: str = BORDER,
+    highlight: str = BORDER_HI,
+    accent: str | None = None,
+) -> str:
+    """8-bit notched pixel border with crisp edges and subtle drop shadow."""
+    p = 4  # pixel unit
+    parts = [
+        # Outer shadow offset
+        f'<rect x="{p*2}" y="{p*2}" width="{w - p*2}" height="{h - p*2}" fill="{SHADOW}" shape-rendering="crispEdges"/>',
+        # Main body (notched 4 corners)
+        f'<rect x="{p}" y="{0}" width="{w - p*3}" height="{h - p}" fill="{border}" shape-rendering="crispEdges"/>',
+        f'<rect x="{0}" y="{p}" width="{w - p}" height="{h - p*3}" fill="{border}" shape-rendering="crispEdges"/>',
+        # Inner fill
+        f'<rect x="{p}" y="{p}" width="{w - p*3}" height="{h - p*3}" fill="{bg}" shape-rendering="crispEdges"/>',
+        # Subtle pixel grid background
+        f'<rect x="{p}" y="{p}" width="{w - p*3}" height="{h - p*3}" fill="url(#pxGrid)" opacity="0.55"/>',
+        # Top inner highlight
+        f'<rect x="{p*2}" y="{p}" width="{w - p*5}" height="2" fill="{highlight}" opacity="0.65" shape-rendering="crispEdges"/>',
+        # 4 corner pixel rivets
+        f'<rect x="{p*2}" y="{p*2}" width="3" height="3" fill="{highlight}" shape-rendering="crispEdges"/>',
+        f'<rect x="{w - p*3 - 3}" y="{p*2}" width="3" height="3" fill="{highlight}" shape-rendering="crispEdges"/>',
+        f'<rect x="{p*2}" y="{h - p*3 - 3}" width="3" height="3" fill="{highlight}" shape-rendering="crispEdges"/>',
+        f'<rect x="{w - p*3 - 3}" y="{h - p*3 - 3}" width="3" height="3" fill="{highlight}" shape-rendering="crispEdges"/>',
+    ]
+    if accent:
+        parts.append(
+            f'<rect x="{p}" y="{p}" width="4" height="{h - p*3}" fill="{accent}" shape-rendering="crispEdges"/>'
         )
-    (ASSETS_DIR / EXTRA_LINK["filename"]).write_text(
-        render_project_pill_svg(
-            label=EXTRA_LINK["label"],
-            accent=EXTRA_LINK["accent"],
-            width=EXTRA_LINK["width"],
-        ),
-        encoding="utf-8",
+    return "\n  ".join(parts)
+
+
+def svg_defs() -> str:
+    return """<defs>
+    <pattern id="pxGrid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="1" height="1" fill="#334155" opacity="0.5"/>
+      <line x1="0" y1="8" x2="16" y2="8" stroke="#000000" stroke-opacity="0.16" stroke-width="1"/>
+    </pattern>
+  </defs>"""
+
+
+def pixel_badge(x: int, y: int, text: str, fg: str, bg: str, border: str, width: int) -> str:
+    return "\n  ".join(
+        [
+            f'<rect x="{x}" y="{y}" width="{width}" height="24" fill="{border}" shape-rendering="crispEdges"/>',
+            f'<rect x="{x+2}" y="{y+2}" width="{width-4}" height="20" fill="{bg}" shape-rendering="crispEdges"/>',
+            f'<rect x="{x+7}" y="{y+9}" width="5" height="5" fill="{fg}" shape-rendering="crispEdges"/>',
+            f'<text x="{x+18}" y="{y+16}" fill="{fg}" font-family="{MONO_FONT}" font-size="11" font-weight="700" letter-spacing="0.8">{escape(text)}</text>',
+        ]
     )
+
+
+def render_hero() -> str:
+    w, h = 896, 248
+
+    # 8-bit pixel "ZF" monogram (11x7 grid)
+    zf_grid = [
+        "11111.22222",
+        "...1..2....",
+        "..1...2222.",
+        ".1....2....",
+        "1.....2....",
+        "11111.2....",
+    ]
+    zf_logo = pixel_matrix(
+        zf_grid,
+        x0=42,
+        y0=68,
+        scale=6,
+        palette={"1": GREEN, "2": AMBER},
+    )
+
+    # 8-bit pixel workbench illustration (CRT monitor + code + coffee + sparks)
+    workstation_grid = [
+        "..............y.......",
+        ".............yyy......",
+        "....bbbbbbbbbb.y......",
+        "...bddddddddddbb......",
+        "...bdggggg..ddbb......",
+        "...bdg..ccc.ddbb...w..",
+        "...bdg.gggg.ddbb..w...",
+        "...bdg..yy..ddbb......",
+        "...bdg.g....ddbb.rrrr.",
+        "...bddddddddddbb.rwwrr",
+        "....bbbbbbbbbb...rwwr.",
+        ".......bbbb......rrrr.",
+        ".....bbbbbbbb.........",
+        "..ssssssssssssss......",
+        ".sggggggggggggggs.....",
+        "..ssssssssssssss......",
+    ]
+    workstation = pixel_matrix(
+        workstation_grid,
+        x0=676,
+        y0=58,
+        scale=8,
+        palette={
+            "b": "#334155",
+            "d": "#090E14",
+            "g": GREEN,
+            "c": CYAN,
+            "y": AMBER,
+            "s": "#475569",
+            "r": "#D97706",
+            "w": "#CBD5E1",
+        },
+    )
+
+    badges = "\n  ".join(
+        [
+            pixel_badge(42, 188, "AI AGENTS", GREEN, "#0E241A", "#1E4D36", 112),
+            pixel_badge(166, 188, "SYSTEMS LAB", CYAN, "#0C2132", "#1B4666", 128),
+            pixel_badge(306, 188, "WORKFLOWS", AMBER, "#291B07", "#5E3D0D", 116),
+            pixel_badge(434, 188, "CONTENT CREATOR", VIOLET, "#1E1636", "#423175", 142),
+        ]
+    )
+
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" fill="none">
+  {svg_defs()}
+  {pixel_frame(w, h, bg=PANEL_BG)}
+
+  <!-- Top terminal status bar -->
+  <rect x="4" y="4" width="{w-12}" height="32" fill="#0C121A" shape-rendering="crispEdges"/>
+  <rect x="4" y="36" width="{w-12}" height="2" fill="{BORDER}" shape-rendering="crispEdges"/>
+  <rect x="20" y="16" width="8" height="8" fill="{GREEN}" shape-rendering="crispEdges"/>
+  <rect x="34" y="16" width="8" height="8" fill="{AMBER}" shape-rendering="crispEdges"/>
+  <rect x="48" y="16" width="8" height="8" fill="{CYAN}" shape-rendering="crispEdges"/>
+  <text x="72" y="24" fill="{TEXT_SUB}" font-family="{MONO_FONT}" font-size="12" font-weight="600" letter-spacing="1.2">SYS://ZHUFENG.ZF</text>
+  <rect x="698" y="17" width="7" height="7" fill="{GREEN}" shape-rendering="crispEdges"/>
+  <text x="712" y="24" fill="{GREEN}" font-family="{MONO_FONT}" font-size="11" font-weight="700" letter-spacing="1">ONLINE · BUILDER MODE</text>
+
+  <!-- Pixel ZF monogram -->
+  <rect x="34" y="60" width="82" height="52" fill="#0B1017" stroke="{BORDER}" stroke-width="2" shape-rendering="crispEdges"/>
+  {zf_logo}
+
+  <!-- Main identity -->
+  <text x="134" y="92" fill="{TEXT_MAIN}" font-family="{SANS_FONT}" font-size="34" font-weight="800" letter-spacing="1">朱锋ZF</text>
+  <text x="136" y="114" fill="{AMBER}" font-family="{MONO_FONT}" font-size="12" font-weight="700" letter-spacing="1.8">INDEPENDENT BUILDER · AI-NATIVE &amp; AGENT SYSTEMS</text>
+
+  <!-- Manifesto -->
+  <text x="42" y="146" fill="{TEXT_MAIN}" font-family="{MONO_FONT}" font-size="14" font-weight="600">&gt; Build to understand.</text>
+  <text x="42" y="170" fill="{TEXT_SUB}" font-family="{SANS_FONT}" font-size="13.5" font-weight="500">亲手构造吃透底层机制，用确定性脚本守住交付质量。</text>
+
+  <!-- Status badges -->
+  {badges}
+
+  <!-- Right pixel workstation -->
+  <rect x="654" y="50" width="212" height="176" fill="#0B1017" stroke="#223044" stroke-width="2" shape-rendering="crispEdges"/>
+  {workstation}
+  <text x="676" y="210" fill="{TEXT_DIM}" font-family="{MONO_FONT}" font-size="10" letter-spacing="1.2">LV.23 · CRAFTING SYSTEMS</text>
+</svg>
+"""
+
+
+def render_section_header(title: str, subtitle: str, accent: str) -> str:
+    w, h = 896, 40
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" fill="none">
+  <rect x="0" y="14" width="10" height="10" fill="{accent}" shape-rendering="crispEdges"/>
+  <rect x="14" y="16" width="6" height="6" fill="{BORDER_HI}" shape-rendering="crispEdges"/>
+  <text x="30" y="24" fill="{TEXT_MAIN}" font-family="{MONO_FONT}" font-size="14" font-weight="800" letter-spacing="1.6">{escape(title)}</text>
+  <text x="236" y="24" fill="{TEXT_SUB}" font-family="{SANS_FONT}" font-size="12.5" font-weight="500">{escape(subtitle)}</text>
+  <rect x="0" y="34" width="{w}" height="2" fill="{BORDER}" shape-rendering="crispEdges"/>
+  <rect x="0" y="34" width="120" height="2" fill="{accent}" shape-rendering="crispEdges"/>
+</svg>
+"""
+
+
+ICONS: dict[str, list[str]] = {
+    "chip": [
+        "..a..a..",
+        ".bbbbbb.",
+        "abccccba",
+        ".bcyycb.",
+        ".bcyycb.",
+        "abccccba",
+        ".bbbbbb.",
+        "..a..a..",
+    ],
+    "slides": [
+        "bbbbbbbb",
+        "bccccccb",
+        "bcyaaacb",
+        "bcyccccb",
+        "bccccccb",
+        "bbbbbbbb",
+        "...bb...",
+        "..b..b..",
+    ],
+    "radar": [
+        "..bbbb..",
+        ".bccccb.",
+        "bc..y.cb",
+        "bc.y..cb",
+        "bc..y.cb",
+        "bc....cb",
+        ".bccccb.",
+        "..bbbb..",
+    ],
+    "doc": [
+        ".bbbbbb.",
+        ".bccccb.",
+        ".bcyycb.",
+        ".bccccb.",
+        ".bcyyyb.",
+        ".bccccb.",
+        ".bcyycb.",
+        ".bbbbbb.",
+    ],
+    "phone": [
+        "..bbbb..",
+        ".bccccb.",
+        ".bcyycb.",
+        ".bccccb.",
+        ".bccccb.",
+        ".bccccb.",
+        ".bc..cb.",
+        "..bbbb..",
+    ],
+    "gear": [
+        "...bb...",
+        ".b.bb.b.",
+        "..bbbb..",
+        "bbbyybbb",
+        "bbbyybbb",
+        "..bbbb..",
+        ".b.bb.b.",
+        "...bb...",
+    ],
+}
+
+
+def render_project_card(
+    *,
+    name: str,
+    line1: str,
+    line2: str,
+    tag: str,
+    accent: str,
+    accent_bg: str,
+    icon_key: str,
+) -> str:
+    w, h = 440, 146
+    icon = pixel_matrix(
+        ICONS[icon_key],
+        x0=24,
+        y0=24,
+        scale=4,
+        palette={
+            "a": BORDER_HI,
+            "b": "#64748B",
+            "c": "#0F172A",
+            "y": accent,
+        },
+    )
+    tag_w = max(92, len(tag) * 8 + 24)
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" fill="none">
+  {svg_defs()}
+  {pixel_frame(w, h, bg=CARD_BG, accent=accent)}
+
+  <!-- Icon frame -->
+  <rect x="18" y="18" width="44" height="44" fill="#0B1017" stroke="{BORDER}" stroke-width="2" shape-rendering="crispEdges"/>
+  {icon}
+
+  <!-- Title -->
+  <text x="76" y="38" fill="{TEXT_MAIN}" font-family="{MONO_FONT}" font-size="16" font-weight="800">{escape(name)}</text>
+  <rect x="76" y="46" width="48" height="3" fill="{accent}" shape-rendering="crispEdges"/>
+
+  <!-- Description (2 crisp lines, generous spacing) -->
+  <text x="22" y="84" fill="{TEXT_SUB}" font-family="{SANS_FONT}" font-size="12.5" font-weight="500">{escape(line1)}</text>
+  <text x="22" y="103" fill="{TEXT_SUB}" font-family="{SANS_FONT}" font-size="12.5" font-weight="500">{escape(line2)}</text>
+
+  <!-- Footer tag & pixel arrow -->
+  <rect x="22" y="114" width="{tag_w}" height="18" fill="{accent_bg}" stroke="{accent}" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="32" y="127" fill="{accent}" font-family="{MONO_FONT}" font-size="10.5" font-weight="700" letter-spacing="0.8">{escape(tag)}</text>
+  <text x="382" y="127" fill="{accent}" font-family="{MONO_FONT}" font-size="12" font-weight="700">OPEN &gt;</text>
+</svg>
+"""
+
+
+def render_protocol() -> str:
+    w, h = 896, 224
+    pillars = [
+        ("01", "BUILD TO UNDERSTAND", GREEN, "不停在收藏与调 API", "在低复杂度里亲手重建机制才算真懂"),
+        ("02", "DETERMINISTIC GATES", AMBER, "原则归原则，机械归脚本", "能用自动化脚本验收的绝不靠感觉"),
+        ("03", "END-TO-END SHIPPING", CYAN, "事实、原型、验证闭环", "坚持单主线推进，把想法真正交付上线"),
+    ]
+    cols: list[str] = []
+    col_w = 268
+    for idx, (num, title, color, l1, l2) in enumerate(pillars):
+        cx = 24 + idx * (col_w + 18)
+        cy = 50
+        cols.append(
+            f"""
+  <rect x="{cx}" y="{cy}" width="{col_w}" height="106" fill="#0B1017" stroke="{BORDER}" stroke-width="2" shape-rendering="crispEdges"/>
+  <rect x="{cx}" y="{cy}" width="{col_w}" height="4" fill="{color}" shape-rendering="crispEdges"/>
+  <text x="{cx+14}" y="{cy+28}" fill="{color}" font-family="{MONO_FONT}" font-size="12" font-weight="800" letter-spacing="1">{num} // {escape(title)}</text>
+  <text x="{cx+14}" y="{cy+58}" fill="{TEXT_MAIN}" font-family="{SANS_FONT}" font-size="12.5" font-weight="600">{escape(l1)}</text>
+  <text x="{cx+14}" y="{cy+80}" fill="{TEXT_SUB}" font-family="{SANS_FONT}" font-size="12" font-weight="500">{escape(l2)}</text>"""
+        )
+
+    stack = [
+        ("PYTHON", GREEN),
+        ("TYPESCRIPT", CYAN),
+        ("REACT", CYAN),
+        ("LANGGRAPH", AMBER),
+        ("AGENT HARNESS", GREEN),
+        ("SQLITE", VIOLET),
+        ("FFMPEG", AMBER),
+    ]
+    pills: list[str] = []
+    px = 114
+    for label, color in stack:
+        pw = len(label) * 8 + 20
+        pills.append(
+            f'<rect x="{px}" y="174" width="{pw}" height="24" fill="#0B1017" stroke="{BORDER_HI}" stroke-width="1.5" shape-rendering="crispEdges"/>'
+            f'<rect x="{px+6}" y="183" width="5" height="5" fill="{color}" shape-rendering="crispEdges"/>'
+            f'<text x="{px+16}" y="190" fill="{TEXT_MAIN}" font-family="{MONO_FONT}" font-size="11" font-weight="700">{label}</text>'
+        )
+        px += pw + 10
+
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" fill="none">
+  {svg_defs()}
+  {pixel_frame(w, h, bg=PANEL_BG)}
+
+  <rect x="24" y="20" width="8" height="8" fill="{AMBER}" shape-rendering="crispEdges"/>
+  <text x="40" y="29" fill="{TEXT_MAIN}" font-family="{MONO_FONT}" font-size="13" font-weight="800" letter-spacing="1.4">BUILDER PROTOCOL &amp; LOADOUT</text>
+  <text x="708" y="29" fill="{TEXT_DIM}" font-family="{MONO_FONT}" font-size="11" letter-spacing="1">VERIFIED BY SCRIPTS</text>
+
+  {"".join(cols)}
+
+  <text x="24" y="190" fill="{TEXT_SUB}" font-family="{MONO_FONT}" font-size="11.5" font-weight="700" letter-spacing="1">LOADOUT:</text>
+  {"".join(pills)}
+</svg>
+"""
+
+
+def render_all_repos_button() -> str:
+    w, h = 448, 52
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" fill="none">
+  {svg_defs()}
+  {pixel_frame(w, h, bg="#13221A", border="#22543D", highlight=GREEN)}
+  <rect x="28" y="19" width="8" height="10" fill="{GREEN}" shape-rendering="crispEdges"/>
+  <text x="48" y="29" fill="{TEXT_MAIN}" font-family="{MONO_FONT}" font-size="13" font-weight="800" letter-spacing="1">EXPLORE ALL REPOSITORIES · 查看全部项目</text>
+</svg>
+"""
 
 
 def main() -> None:
-    metrics = build_metrics()
-    contribution_series = get_contribution_series()
+    ASSETS.mkdir(parents=True, exist_ok=True)
+    # Remove obsolete zero-stat assets
+    for old in ("header.svg", "metrics.svg", "contribution-signals.svg", "csccc.svg"):
+        old_path = ASSETS / old
+        if old_path.exists():
+            old_path.unlink()
 
-    ASSETS_DIR.mkdir(parents=True, exist_ok=True)
-    (ASSETS_DIR / "metrics.svg").write_text(render_metrics_svg(metrics), encoding="utf-8")
-    (ASSETS_DIR / "contribution-signals.svg").write_text(
-        render_contribution_svg(contribution_series),
+    (ASSETS / "hero.svg").write_text(render_hero(), encoding="utf-8")
+    (ASSETS / "section-work.svg").write_text(
+        render_section_header("SELECTED WORK", "精选公开作品 · 点击卡片直达仓库", GREEN),
         encoding="utf-8",
     )
-    write_project_assets()
-    print(
-        f"Generated assets for {USERNAME}: metrics={metrics}, contribution_days={len(contribution_series)}"
-    )
+    (ASSETS / "protocol.svg").write_text(render_protocol(), encoding="utf-8")
+    (ASSETS / "all-repositories.svg").write_text(render_all_repos_button(), encoding="utf-8")
+
+    projects = [
+        (
+            "build-to-understand.svg",
+            "build-to-understand",
+            "通过从零构造最小可运行系统吃透底层机制",
+            "涵盖 mini-agent、mini-object-store 等系统实验",
+            "PYTHON · SYSTEMS",
+            CYAN,
+            CYAN_DARK,
+            "chip",
+        ),
+        (
+            "organicslides.svg",
+            "OrganicSlides",
+            "基于 LangGraph 多智能体的 AI 演示文稿引擎",
+            "自动完成研究、策划、撰写、设计与 PPT 渲染",
+            "PYTHON · LANGGRAPH",
+            AMBER,
+            AMBER_DARK,
+            "slides",
+        ),
+        (
+            "geo-insight.svg",
+            "GEO-Insight",
+            "国产大模型品牌可见性与推荐排名监测工具",
+            "覆盖 DeepSeek、Kimi、豆包、通义千问等主流模型",
+            "JS · GEO RADAR",
+            GREEN,
+            GREEN_DARK,
+            "radar",
+        ),
+        (
+            "aigc-deslop.svg",
+            "aigc-deslop",
+            "中文论文 AIGC 降重方法论 + Word 保格式工具",
+            "真实论文实测检测率由 55% 降至 11%",
+            "PYTHON · NLP",
+            VIOLET,
+            VIOLET_DARK,
+            "doc",
+        ),
+        (
+            "app-mockup-studio.svg",
+            "App-Mockup-Studio",
+            "SnapShell 在线截图带壳展示图生成工具",
+            "上传截图一键生成应用商店、官网与社媒配图",
+            "JS · WEB TOOL",
+            CYAN,
+            CYAN_DARK,
+            "phone",
+        ),
+        (
+            "softright-ai.svg",
+            "SoftRight-AI",
+            "面向开发者与企业的软著申请智能体系统",
+            "自动化完成软件著作权文档撰写与源码整理",
+            "TS · AI AGENT",
+            AMBER,
+            AMBER_DARK,
+            "gear",
+        ),
+    ]
+    for filename, name, l1, l2, tag, accent, accent_bg, icon_key in projects:
+        (ASSETS / filename).write_text(
+            render_project_card(
+                name=name,
+                line1=l1,
+                line2=l2,
+                tag=tag,
+                accent=accent,
+                accent_bg=accent_bg,
+                icon_key=icon_key,
+            ),
+            encoding="utf-8",
+        )
+    print(f"Generated {len(list(ASSETS.glob('*.svg')))} dark pixel SVG assets in {ASSETS}")
 
 
 if __name__ == "__main__":

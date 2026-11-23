@@ -29,32 +29,29 @@
   <rect x="40" y="28" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
   <rect x="44" y="28" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
   <rect x="48" y="28" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="28" y="32" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="32" y="32" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="36" y="32" width="4" height="4" fill="#38BDF8" shape-rendering="crispEdges"/>
+  <rect x="24" y="32" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="28" y="32" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
   <rect x="40" y="32" width="4" height="4" fill="#38BDF8" shape-rendering="crispEdges"/>
-  <rect x="44" y="32" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="48" y="32" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="28" y="36" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="32" y="36" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="36" y="36" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="40" y="36" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="44" y="36" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="48" y="36" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="28" y="40" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="32" y="40" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="36" y="40" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="40" y="40" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="44" y="40" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="48" y="40" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="28" y="44" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="32" y="44" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="36" y="44" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="40" y="44" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="44" y="44" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="48" y="44" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="48" y="32" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="52" y="32" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="24" y="36" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="28" y="36" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="36" y="36" width="4" height="4" fill="#38BDF8" shape-rendering="crispEdges"/>
+  <rect x="48" y="36" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="52" y="36" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="24" y="40" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="28" y="40" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="40" y="40" width="4" height="4" fill="#38BDF8" shape-rendering="crispEdges"/>
+  <rect x="48" y="40" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="52" y="40" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="24" y="44" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="28" y="44" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="48" y="44" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="52" y="44" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="28" y="48" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="32" y="48" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="36" y="48" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="40" y="48" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
   <rect x="44" y="48" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
   <rect x="48" y="48" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="32" y="52" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
@@ -63,15 +60,15 @@
   <rect x="44" y="52" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
 
   <!-- Title -->
-  <text x="76" y="38" fill="#F1F5F9" font-family="'SF Mono', 'JetBrains Mono', 'Menlo', 'Monaco', 'Consolas', monospace" font-size="16" font-weight="800">App-Mockup-Studio</text>
+  <text x="76" y="38" fill="#F1F5F9" font-family="'SF Mono', 'JetBrains Mono', 'Menlo', 'Monaco', 'Consolas', monospace" font-size="16" font-weight="800">pear-code-reconstruction</text>
   <rect x="76" y="46" width="48" height="3" fill="#38BDF8" shape-rendering="crispEdges"/>
 
   <!-- Description (2 crisp lines, generous spacing) -->
-  <text x="22" y="84" fill="#94A3B8" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif" font-size="12.5" font-weight="500">SnapShell 在线截图带壳展示图生成工具</text>
-  <text x="22" y="103" fill="#94A3B8" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif" font-size="12.5" font-weight="500">上传截图一键生成应用商店、官网与社媒配图</text>
+  <text x="22" y="84" fill="#94A3B8" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif" font-size="12.5" font-weight="500">顶级动效官网 1:1 代码级复刻与验收方法论</text>
+  <text x="22" y="103" fill="#94A3B8" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif" font-size="12.5" font-weight="500">含双端逐帧动效对照、像素 Diff 与 E2E 证据链</text>
 
   <!-- Footer tag & pixel arrow -->
-  <rect x="22" y="114" width="128" height="18" fill="#0C4A6E" stroke="#38BDF8" stroke-width="1" shape-rendering="crispEdges"/>
-  <text x="32" y="127" fill="#38BDF8" font-family="'SF Mono', 'JetBrains Mono', 'Menlo', 'Monaco', 'Consolas', monospace" font-size="10.5" font-weight="700" letter-spacing="0.8">JS · WEB TOOL</text>
+  <rect x="22" y="114" width="136" height="18" fill="#0C4A6E" stroke="#38BDF8" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="32" y="127" fill="#38BDF8" font-family="'SF Mono', 'JetBrains Mono', 'Menlo', 'Monaco', 'Consolas', monospace" font-size="10.5" font-weight="700" letter-spacing="0.8">FRONTEND · E2E</text>
   <text x="382" y="127" fill="#38BDF8" font-family="'SF Mono', 'JetBrains Mono', 'Menlo', 'Monaco', 'Consolas', monospace" font-size="12" font-weight="700">OPEN &gt;</text>
 </svg>

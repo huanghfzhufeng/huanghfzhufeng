@@ -7,7 +7,7 @@ from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "assets" / "pixel"
+ASSETS = ROOT / "assets" / "pixel-v2"
 
 # Dark Pixel Craft Palette
 BG_DARK = "#0D1117"
@@ -436,6 +436,16 @@ def main() -> None:
             "chip",
         ),
         (
+            "cs-neigong.svg",
+            "cs-neigong",
+            "计算机基础 · 真懂手册，用底层内功压住大模型",
+            "覆盖 10 大硬核模块与 147 张原创原理配图",
+            "CS · HANDBOOK",
+            GREEN,
+            GREEN_DARK,
+            "doc",
+        ),
+        (
             "organicslides.svg",
             "OrganicSlides",
             "基于 LangGraph 多智能体的 AI 演示文稿引擎",
@@ -446,14 +456,24 @@ def main() -> None:
             "slides",
         ),
         (
-            "geo-insight.svg",
-            "GEO-Insight",
-            "国产大模型品牌可见性与推荐排名监测工具",
-            "覆盖 DeepSeek、Kimi、豆包、通义千问等主流模型",
-            "JS · GEO RADAR",
-            GREEN,
-            GREEN_DARK,
+            "pear-code-reconstruction.svg",
+            "pear-code-reconstruction",
+            "顶级动效官网 1:1 代码级复刻与验收方法论",
+            "含双端逐帧动效对照、像素 Diff 与 E2E 证据链",
+            "FRONTEND · E2E",
+            CYAN,
+            CYAN_DARK,
             "radar",
+        ),
+        (
+            "zhulaicai-ledger.svg",
+            "zhulaicai-ledger",
+            "面向小店与家庭的轻量全栈多端共享记账系统",
+            "Express 5 + SQLite WAL + PWA + Android 壳",
+            "NODE · SQLITE",
+            AMBER,
+            AMBER_DARK,
+            "phone",
         ),
         (
             "aigc-deslop.svg",
@@ -463,26 +483,6 @@ def main() -> None:
             "PYTHON · NLP",
             VIOLET,
             VIOLET_DARK,
-            "doc",
-        ),
-        (
-            "app-mockup-studio.svg",
-            "App-Mockup-Studio",
-            "SnapShell 在线截图带壳展示图生成工具",
-            "上传截图一键生成应用商店、官网与社媒配图",
-            "JS · WEB TOOL",
-            CYAN,
-            CYAN_DARK,
-            "phone",
-        ),
-        (
-            "softright-ai.svg",
-            "SoftRight-AI",
-            "面向开发者与企业的软著申请智能体系统",
-            "自动化完成软件著作权文档撰写与源码整理",
-            "TS · AI AGENT",
-            AMBER,
-            AMBER_DARK,
             "gear",
         ),
     ]

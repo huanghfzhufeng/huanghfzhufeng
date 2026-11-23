@@ -19,56 +19,65 @@
 
   <!-- Icon frame -->
   <rect x="18" y="18" width="44" height="44" fill="#0B1017" stroke="#2B3B52" stroke-width="2" shape-rendering="crispEdges"/>
+  <rect x="28" y="24" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="32" y="24" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="36" y="24" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="40" y="24" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="44" y="24" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="48" y="24" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="28" y="28" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="32" y="28" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
   <rect x="36" y="28" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
   <rect x="40" y="28" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
   <rect x="44" y="28" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
   <rect x="48" y="28" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="24" y="32" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="28" y="32" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="28" y="32" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="32" y="32" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="36" y="32" width="4" height="4" fill="#4ADE80" shape-rendering="crispEdges"/>
   <rect x="40" y="32" width="4" height="4" fill="#4ADE80" shape-rendering="crispEdges"/>
-  <rect x="48" y="32" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="52" y="32" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="24" y="36" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="28" y="36" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="36" y="36" width="4" height="4" fill="#4ADE80" shape-rendering="crispEdges"/>
-  <rect x="48" y="36" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="52" y="36" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="24" y="40" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="28" y="40" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="44" y="32" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="48" y="32" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="28" y="36" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="32" y="36" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="36" y="36" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="40" y="36" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="44" y="36" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="48" y="36" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="28" y="40" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="32" y="40" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="36" y="40" width="4" height="4" fill="#4ADE80" shape-rendering="crispEdges"/>
   <rect x="40" y="40" width="4" height="4" fill="#4ADE80" shape-rendering="crispEdges"/>
-  <rect x="48" y="40" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="52" y="40" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="24" y="44" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
-  <rect x="28" y="44" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="48" y="44" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="52" y="44" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="44" y="40" width="4" height="4" fill="#4ADE80" shape-rendering="crispEdges"/>
+  <rect x="48" y="40" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="28" y="44" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="32" y="44" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="36" y="44" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="40" y="44" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="44" y="44" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="48" y="44" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="28" y="48" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="32" y="48" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="36" y="48" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
-  <rect x="40" y="48" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
+  <rect x="36" y="48" width="4" height="4" fill="#4ADE80" shape-rendering="crispEdges"/>
+  <rect x="40" y="48" width="4" height="4" fill="#4ADE80" shape-rendering="crispEdges"/>
   <rect x="44" y="48" width="4" height="4" fill="#0F172A" shape-rendering="crispEdges"/>
   <rect x="48" y="48" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="28" y="52" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="32" y="52" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="36" y="52" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="40" y="52" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
   <rect x="44" y="52" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
+  <rect x="48" y="52" width="4" height="4" fill="#64748B" shape-rendering="crispEdges"/>
 
   <!-- Title -->
-  <text x="76" y="38" fill="#F1F5F9" font-family="'SF Mono', 'JetBrains Mono', 'Menlo', 'Monaco', 'Consolas', monospace" font-size="16" font-weight="800">GEO-Insight</text>
+  <text x="76" y="38" fill="#F1F5F9" font-family="'SF Mono', 'JetBrains Mono', 'Menlo', 'Monaco', 'Consolas', monospace" font-size="16" font-weight="800">cs-neigong</text>
   <rect x="76" y="46" width="48" height="3" fill="#4ADE80" shape-rendering="crispEdges"/>
 
   <!-- Description (2 crisp lines, generous spacing) -->
-  <text x="22" y="84" fill="#94A3B8" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif" font-size="12.5" font-weight="500">国产大模型品牌可见性与推荐排名监测工具</text>
-  <text x="22" y="103" fill="#94A3B8" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif" font-size="12.5" font-weight="500">覆盖 DeepSeek、Kimi、豆包、通义千问等主流模型</text>
+  <text x="22" y="84" fill="#94A3B8" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif" font-size="12.5" font-weight="500">计算机基础 · 真懂手册，用底层内功压住大模型</text>
+  <text x="22" y="103" fill="#94A3B8" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif" font-size="12.5" font-weight="500">覆盖 10 大硬核模块与 147 张原创原理配图</text>
 
   <!-- Footer tag & pixel arrow -->
-  <rect x="22" y="114" width="136" height="18" fill="#14532D" stroke="#4ADE80" stroke-width="1" shape-rendering="crispEdges"/>
-  <text x="32" y="127" fill="#4ADE80" font-family="'SF Mono', 'JetBrains Mono', 'Menlo', 'Monaco', 'Consolas', monospace" font-size="10.5" font-weight="700" letter-spacing="0.8">JS · GEO RADAR</text>
+  <rect x="22" y="114" width="128" height="18" fill="#14532D" stroke="#4ADE80" stroke-width="1" shape-rendering="crispEdges"/>
+  <text x="32" y="127" fill="#4ADE80" font-family="'SF Mono', 'JetBrains Mono', 'Menlo', 'Monaco', 'Consolas', monospace" font-size="10.5" font-weight="700" letter-spacing="0.8">CS · HANDBOOK</text>
   <text x="382" y="127" fill="#4ADE80" font-family="'SF Mono', 'JetBrains Mono', 'Menlo', 'Monaco', 'Consolas', monospace" font-size="12" font-weight="700">OPEN &gt;</text>
 </svg>

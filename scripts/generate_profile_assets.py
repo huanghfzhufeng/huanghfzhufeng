@@ -7,7 +7,7 @@ from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "assets"
+ASSETS = ROOT / "assets" / "pixel"
 
 # Dark Pixel Craft Palette
 BG_DARK = "#0D1117"
@@ -215,14 +215,15 @@ def render_hero() -> str:
 
 
 def render_section_header(title: str, subtitle: str, accent: str) -> str:
-    w, h = 896, 40
+    w, h = 896, 48
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" fill="none">
-  <rect x="0" y="14" width="10" height="10" fill="{accent}" shape-rendering="crispEdges"/>
-  <rect x="14" y="16" width="6" height="6" fill="{BORDER_HI}" shape-rendering="crispEdges"/>
-  <text x="30" y="24" fill="{TEXT_MAIN}" font-family="{MONO_FONT}" font-size="14" font-weight="800" letter-spacing="1.6">{escape(title)}</text>
-  <text x="236" y="24" fill="{TEXT_SUB}" font-family="{SANS_FONT}" font-size="12.5" font-weight="500">{escape(subtitle)}</text>
-  <rect x="0" y="34" width="{w}" height="2" fill="{BORDER}" shape-rendering="crispEdges"/>
-  <rect x="0" y="34" width="120" height="2" fill="{accent}" shape-rendering="crispEdges"/>
+  {svg_defs()}
+  {pixel_frame(w, h, bg=PANEL_BG, accent=accent)}
+  <rect x="22" y="18" width="10" height="10" fill="{accent}" shape-rendering="crispEdges"/>
+  <rect x="36" y="20" width="6" height="6" fill="{BORDER_HI}" shape-rendering="crispEdges"/>
+  <text x="52" y="28" fill="{TEXT_MAIN}" font-family="{MONO_FONT}" font-size="14" font-weight="800" letter-spacing="1.6">{escape(title)}</text>
+  <text x="242" y="28" fill="{TEXT_SUB}" font-family="{SANS_FONT}" font-size="12.5" font-weight="500">{escape(subtitle)}</text>
+  <text x="794" y="28" fill="{accent}" font-family="{MONO_FONT}" font-size="11" font-weight="700" letter-spacing="1">06 / FEATURED</text>
 </svg>
 """
 
